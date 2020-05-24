@@ -169,7 +169,7 @@ select{
 #notify{
     background: rgba(255, 255, 255, 0.918);
     padding: 3rem 0;
-    display: none;
+    /* display: none; */
 }
 
 .notify-contents{
