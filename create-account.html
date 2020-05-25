@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome Kits -->
+    <script src="https://kit.fontawesome.com/751b3a69bc.js" crossorigin="anonymous"></script>
+    <!-- Main CSS styling -->
+    <link rel="stylesheet" href="create-account.css">
+    <title>keepTrack &mdash; Create Account</title>
+</head>
+
+<body>
+    <main>
+        <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p>
+
+        <div id="create-account-wrapper">
+            <h1 id="header">Create account</h1>
+            <p>Create account to get started</p>
+            <p id="validation-error"></p>
+            <!-- Form-->
+            <form name="create-account-form" action="" onsubmit="return showConfirmation()" method="post">
+                <div class="form-group form-input">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="Full-name" id="full-name" autocomplete required placeholder="Full Name"
+                        required>
+
+                </div>
+                <div class="form-group form-input">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email-address" autocomplete required id="email" placeholder="Email"
+                        required>
+
+                </div>
+                <div class="form-group form-input">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" autocomplete required id="password" placeholder="Password"
+                        required>
+
+                    <i id="show-hide-password" class="fas fa-eye"></i>
+                    <!-- <i class="fas fa-eye-slash"></i> -->
+                    <!-- <i class="fas fa-eye"></i> -->
+                </div>
+                <div class="form-group select-account-type">
+                    <p id="select-input">Account type</p>
+                    <i class="fas fa-sort-down" id="drop-down-icon"></i>
+                    <ul class="account-type" id="select-account">           
+                        <li>Organization</li>
+                        <li>Individual</li>
+                    </ul>
+                </div>
+
+                <button id="create-account-btn" onclick=" return validateForm()" type="submit"> Create Account</button>
+            </form>
+            <p>Have account already? <a href="sign-in.html" class="sign-in-link">Sign in</a>
+            </p>
+        </div>
+    </main>
+
+    <section id="notification">
+        <div id="notification-contents">
+            <i class="fas fa-envelope"></i>
+            <p id="notification-msg">An Email has been sent for you to confirm</p>
+            <a href="sign-in.html"></a><button>goto sign in page</button></a>
+        </div>
+    </section>
+    <script src="create-account.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+:root{
+    font-size: 11px;
+}
+/* CSS Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Righteous', cursive;
+    background: #110022;
+    width: 100vw;
+}
+
+h1 {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background: #110022;
+    padding: 2em 0;
+}
+
+#create-account-wrapper {
+    width: 100vw;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em 0;
+    overflow: hidden;
+}
+
+#keep-track-logo a {
+    display: block;
+    line-height: 1.8em;
+    text-align: center;
+    color: #27ae60;
+    font-size: 1.4rem;
+}
+
+#header {
+    background: #2F80ED;
+    color: #fff;
+    text-align: center;
+    padding: 0.5em;
+    width: 100%;
+}
+
+#create-account-wrapper p {
+    font-weight: 200;
+    padding: 1em 0;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+}
+
+#create-account-wrapper #validation-error {
+    color: #F24A4A;
+    padding: 0.5em;
+    border-radius: 0.4em;
+
+}
+
+.form-group {
+    position: relative;
+    /* width: 100vw; */
+}
+
+#email,
+#password,
+#full-name {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    flex: 1;
+    padding:2em 0 1.5em 0.8em;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
+}
+
+#email:focus #email::placeholder {
+    color: rgba(255, 255, 255, 0.306);
+}
+
+
+.select-account-type,
+.account-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #27AE60;
+    width: 90%;
+    border: 2px solid #fff;
+    border-radius: 3em;
+    /* padding:1em 0 1em 0.8em; */
+    margin: 1em auto;
+    font-size: 0.9em;
+    font-weight: 700;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
+    
+}
+
+.account-type {
+    outline: none;
+    font-size: 1em;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    bottom: -7.3em;
+    left: -50%;
+    right: -50%;
+    border-radius: 0 0 2em 2em;
+    background-color: #fff; 
+    box-shadow: 0 6px 25px rgba(28, 29, 32, 0.34);
+
+}
+
+li{
+    display: block;
+    list-style: none;
+    padding: 0.8em;
+    text-align: center; 
+}
+li:hover{
+    background-color: #2F80ED;
+    color: #FFF;
+}
+li:nth-of-type(2){
+    border-bottom: 1px solid rgb(195, 195, 195);
+    border-top: 1px solid rgb(195, 195, 195);
+}
+
+.select-account-type i {
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.select-account-type  #select-input{
+    padding:1.5em 0 1.5em 0.8em;
+    padding-left: 3em;
+    font-weight: 700;
+    flex: 1;
+    text-align: start;
+  
+}
+#select-account{
+    display: none;
+    transition: all 0.3s linear;
+}
+
+.fa-sort-down:before{
+    content: "\f0dd";
+    padding-right: 1em;
+    position: absolute;
+    right: 0.5em;
+    top: 1em;
+}
+.fa-sort-up:before{
+    content: "\f0de";
+    padding-right: 1em;
+    position: absolute;
+    right: 0.5em;
+    top: 1.2em;
+}
+#show-hide-password {
+    position: initial;
+    cursor: pointer;
+}
+
+.form-input {
+    width: 90%;
+    background-color: #27AE60;
+    border: 2px solid #FFFFFF;
+    border-radius: 3em;
+    padding: 0 1em 0 2em;
+    margin: 1em auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    outline: none;
+    position: relative;
+
+}
+
+.form-input i {
+    position: absolute;
+    display: inline-block;
+    color: #110022;
+    padding: 0 0 0 0.6em;
+    outline: none;
+    border: none;
+    left: 0.7em;
+}
+
+/* .form-input .fa-eye-slash {
+    color: #110022;
+    padding: 0 1em 0 0;
+} */
+
+.fa-eye:before,
+.fa-eye-slash:before {
+    padding-right: 1.3em;
+    position: absolute;
+    top: 0;
+    right: 0.5em;
+    top: 1.2em;
+}
+
+form {
+    width: 100%;
+}
+
+/* Validation bg color and styles */
+.failed {
+    background-color: #F24A4A;
+}
+
+::-webkit-input-placeholder {
+    color: #FFF;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+::-moz-placeholder {
+    color: #FFF;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+#create-account-btn,
+#notification button {
+    display: block;
+    background: #2F80ED;
+    border: 2px solid #FFFFFF;
+    border-radius: 3em;
+    padding: 1em 2em;
+    cursor: pointer;
+    margin: 3em auto 1em auto;
+    color: #fff;
+    outline: none;
+}
+
+#create-account-btn {
+    width: 50%;
+}
+
+.sign-in-link {
+    color: #F2994A;
+}
+
+/* Section: Notification Message after account creation */
+
+#notification {
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #110022f5;
+}
+
+#notification-contents {
+    background-color: #fff;
+    height: auto;
+    width: 90%;
+    border-radius: 1em;
+    padding: 2em 1em;
+}
+
+#notification i {
+    color: #27ae60;
+    font-size: 3em;
+}
+
+#notification-msg {
+    color: rgba(0, 0, 0, 0.754);
+}
+
+/* MEdia queries */
+@media screen and (max-width:369px) {
+
+    #email,
+    #password,
+    #full-name {
+        /* padding: 1.5em 0 1.5em 0.8em; */
+    }
+
+    .select-account-type i {
+        padding: 0 0.6em 0 0;
+        font-size: 1.3em;
+    }
+
+    #show-hide-password {
+        padding: 0 0.6em 0 0;
+    }
+
+    .form-input i {
+        padding-left: 0.4em;
+    }
+
+}
+
+@media screen and (min-width:600px) {
+    .form-input {
+        width: 70%;
+    }
+
+    .select-account-type {
+        width: 70%;
+    }
+
+    #create-account-btn {
+        width: 35%;
+    }
+}
+@media screen and (min-height:560px) and (orientation:portrait) {
+    main {
+        height: 100vh;
+    }
+}
+
+@media screen and (min-width:768px) and (min-height:767px) {
+    main {
+        height: 100vh;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .account-type {
+        box-shadow: 0 6px 25px rgba(39, 174, 95, 0.34);
+    }
+
+    #keep-track-logo a {
+        font-size: 2rem;
+        padding: 1em 0;
+
+    }
+
+    #create-account-wrapper {
+        background-color: #fff;
+        padding: 0 0 2em 0;
+        width: 60vw;
+        border-radius: 5em 5em 1em 1em;
+    }
+
+    #header {
+        font-size: 3em;
+    }
+
+    form {
+        width: 50vw;
+    }
+
+    .form-input {
+        width: 100%;
+    }
+
+    .select-account-type {
+        width: 100%;
+    }
+
+    #create-account-btn {
+        width: 55%;
+    }
+
+    #create-account-wrapper p {
+        color: #000;
+    }
+    .select-account-type  #select-input{
+        color: #fff;
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    #create-account-wrapper {
+        width: 50vw;
+    }
+
+form {
+        width: 40vw;
+    }
+}
+
+@media screen and (min-width:2560px) {
+    #create-account-wrapper {
+        width: 30vw;
+    }
+
+form {
+        width: 25dvw;
+    }
+}
