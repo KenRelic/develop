@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="sign-in.css">
-	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-	<link rel="style" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome Kits -->
+    <script src="https://kit.fontawesome.com/751b3a69bc.js" crossorigin="anonymous"></script>
+    <!-- Main CSS styling -->
+    <link rel="stylesheet" href="sign-in.css">
+    <title>keepTrack &mdash;Sign in</title>
 </head>
+
 <body>
-	<div class="main">
+    <main>
+        <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p>
 
-		<div id="container-1">
-			<header>
-					<h1>KeepTrack</h1>
-			</header>
-		</div>
+        <div id="sign-in-wrapper">
+            <h1 id="header">Sign in</h1>
+            <p>Create account to get started</p>
+            <p id="validation-error"></p>
+            <!-- Form-->
+            <form name="sign-in-form" action="" method="post">
+                <div class="form-group form-input">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email-address" autocomplete required id="email" placeholder="Email"
+                        required>
+                </div>
+                <div class="form-group form-input">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" autocomplete required id="password" placeholder="Password"
+                        required>
+                    <i id="show-hide-password" class="fas fa-eye"></i>
+                </div>
+                  <button id="sign-in-btn" onclick=" return validateForm()" type="submit"> Create Account</button>
+            </form>
+            <p>Forgotten your password?<a href="#" class="retrieve-password-link"> get it here</a>
+            <p>Don't have an account yet? <a href="create-account.html" class="sign-in-link">Create account</a>
+            </p>
+        </div>
+    </main>
 
-		<div id="container-2">
-				<h2>Sign in</h2>
-
-			<p>You are some clicks away from getting your tasks tracked</p>
-
-				<form>
-					<div class="input-container">
-						<i class="fa fa-envelope icon" aria-hidden="true"></i>
-						<input type="email" placeholder="Email" name="email" id="email">
-					</div>
-
-					<div class="input-container">
-						<i class="fa fa-lock icon" aria-hidden="true"></i>
-						<input type="password" placeholder="password" name="password" id="password"><br>
-					</div>
-
-						<span id="sign-in-error-msg"></span><br><br>
-
-					<button class="sign-in" name="sign-in">Sign in</button>
-				</form>
-
-			<footer>
-				<p>Can't remember your password? <span style="color: green">Recover it.</span></p>
-				<p>No account yet? <span style="color: blue">Create account</span></p>
-			</footer>
-		</div>
-	</div>
-
+    <section id="loader-bg">
+        <div id="loader-content">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+    <script src="sign-in.js"></script>
 </body>
+
 </html>
