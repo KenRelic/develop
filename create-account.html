@@ -8,16 +8,30 @@
     <!-- Font Awesome Kits -->
     <script src="https://kit.fontawesome.com/751b3a69bc.js" crossorigin="anonymous"></script>
     <!-- Main CSS styling -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="create-account.css">
     <title>keepTrack &mdash; Create Account</title>
 </head>
 
 <body>
+    <header id="header">
+        <a href="#banner-section" id="header-logo">KeepTrack</a>
+        <i class="fas fa-bars" id="menu-icon"></i>
+        <div id="menu-wrapper">
+            <div id="menu">
+                <a href="create-account.html">Create account</a>
+                <a href="sign-in.html">Sign in</a>
+                <a href="#why-keeptrack-section">Why KeepTrack<sup>&trade;</sup></a>
+                <a href="#pricing-section">Pricing</a>
+            </div>
+        </div>
+        <div id="menu-wrapper-shadow"></div>
+    </header>
     <main>
         <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p>
 
         <div id="create-account-wrapper">
-            <h1 id="header">Create account</h1>
+            <h1 id="section-header">Create account</h1>
             <p>Create account to get started</p>
             <p id="validation-error"></p>
             <!-- Form-->
@@ -66,6 +80,7 @@
             <a href="sign-in.html"></a><button>goto sign in page</button></a>
         </div>
     </section>
+    <script src="main.js"></script>
     <script src="create-account.js"></script>
 </body>
 
