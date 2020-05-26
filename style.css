@@ -120,8 +120,15 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+  -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -ms-transform-origin: top right;
+    -o-transform-origin: top right;
     transform-origin: top right;
-    clip-path: circle(0% at 100% 0%);
+    -webkit-clip-path: circle(0% at 100% 0%);
+    -moz-clip-path: circle(0% at 100% 0%);
+    -ms-clip-path: circle(0% at 100% 0%);
+    -o-clip-path: circle(0% at 100% 0%);
     transition: all 0.5s ease;
 }
 
