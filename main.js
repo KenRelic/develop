@@ -6,7 +6,7 @@ let menuWrapperShadow = document.getElementById('menu-wrapper-shadow');
 
 menuIcon.addEventListener('click', openMenu);
 closeMenuBtn.addEventListener('click', closeMenu);
-
+menuWrapperShadow.addEventListener('click',closeMenu);
 
 function openMenu() {
     setTimeout(() => {
