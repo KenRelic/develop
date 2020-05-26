@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome Kits -->
+    <script src="https://kit.fontawesome.com/751b3a69bc.js" crossorigin="anonymous"></script>
+    <!-- Main CSS styling -->
+    <link rel="stylesheet" href="sign-in.css">
+    <title>keepTrack &mdash;Sign in</title>
+</head>
+
+<body>
+    <header id="header">
+        <a href="index.html" id="header-logo">KeepTrack</a>
+        <i class="fas fa-bars" id="menu-icon"></i>
+        <div id="menu-wrapper">
+            <div id="menu">
+                <a href="create-account.html">Create account</a>
+                <a href="sign-in.html">Sign in</a>
+                <a href="#why-keeptrack-section">Why KeepTrack<sup>&trade;</sup></a>
+                <a href="#pricing-section">Pricing</a>
+            </div>
+        </div>
+        <div id="menu-wrapper-shadow"></div>
+    </header>
+    <main>
+        <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p>
+
+        <div id="sign-in-wrapper">
+            <h1 id="section-header">Sign in</h1>
+            <p>Create account to get started</p>
+            <p id="validation-error"></p>
+            <!-- Form-->
+            <form name="sign-in-form" action="" method="post">
+                <div class="form-group form-input">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email-address" autocomplete required id="email" placeholder="Email"
+                        required>
+                </div>
+                <div class="form-group form-input">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" autocomplete required id="password" placeholder="Password"
+                        required>
+                    <i id="show-hide-password" class="fas fa-eye"></i>
+                </div>
+                  <button id="sign-in-btn" onclick=" return validateForm()" type="submit"> Create Account</button>
+            </form>
+            <p>Forgotten your password?<a href="#" class="retrieve-password-link"> get it here</a>
+            <p>Don't have an account yet? <a href="create-account.html" class="sign-in-link">Create account</a>
+            </p>
+        </div>
+    </main>
+
+    <section id="loader-bg">
+        <div id="loader-content">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+    <script src="main.js"></script>
+    <script src="sign-in.js"></script>
+</body>
+
+</html>

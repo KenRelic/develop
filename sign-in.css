@@ -26,7 +26,6 @@ a {
     color: #fff;
 }
 
-
 main {
     display: flex;
     flex-direction: column;
@@ -37,7 +36,7 @@ main {
     padding: 2em 0;
 }
 
-#create-account-wrapper {
+#sign-in-wrapper {
     width: 100vw;
     background-color: transparent;
     display: flex;
@@ -57,14 +56,14 @@ main {
 }
 
 #section-header {
-    background: #2F80ED;
+    background: rgb(228, 133, 51);
     color: #fff;
     text-align: center;
     padding: 0.5em;
     width: 100%;
 }
 
-#create-account-wrapper p {
+#sign-in-wrapper p {
     font-weight: 200;
     padding: 1em 0;
     color: #fff;
@@ -72,7 +71,7 @@ main {
     text-align: center;
 }
 
-#create-account-wrapper #validation-error {
+#sign-in-wrapper #validation-error {
     color: #F24A4A;
     padding: 0.5em;
     border-radius: 0.4em;
@@ -85,8 +84,7 @@ main {
 }
 
 #email,
-#password,
-#full-name {
+#password {
     background-color: transparent;
     outline: none;
     border: none;
@@ -102,8 +100,6 @@ main {
     color: rgba(255, 255, 255, 0.306);
 }
 
-
-.select-account-type,
 .account-type {
     display: flex;
     align-items: center;
@@ -121,70 +117,6 @@ main {
     
 }
 
-.account-type {
-    outline: none;
-    font-size: 1em;
-    padding: 0;
-    cursor: pointer;
-    display: block;
-    overflow: hidden;
-    position: absolute;
-    bottom: -7.3em;
-    left: -50%;
-    right: -50%;
-    border-radius: 0 0 2em 2em;
-    background-color: #fff; 
-    box-shadow: 0 6px 25px rgba(28, 29, 32, 0.34);
-
-}
-
-li{
-    display: block;
-    list-style: none;
-    padding: 0.8em;
-    text-align: center; 
-}
-li:hover{
-    background-color: #2F80ED;
-    color: #FFF;
-}
-li:nth-of-type(2){
-    border-bottom: 1px solid rgb(195, 195, 195);
-    border-top: 1px solid rgb(195, 195, 195);
-}
-
-.select-account-type i {
-    font-size: 1.3em;
-    cursor: pointer;
-}
-
-.select-account-type  #select-input{
-    padding:1.5em 0 1.5em 0.8em;
-    padding-left: 3em;
-    font-weight: 700;
-    flex: 1;
-    text-align: start;
-  
-}
-#select-account{
-    display: none;
-    transition: all 0.3s linear;
-}
-
-.fa-sort-down:before{
-    content: "\f0dd";
-    padding-right: 1em;
-    position: absolute;
-    right: 0.5em;
-    top: 1em;
-}
-.fa-sort-up:before{
-    content: "\f0de";
-    padding-right: 1em;
-    position: absolute;
-    right: 0.5em;
-    top: 1.2em;
-}
 #show-hide-password {
     position: initial;
     cursor: pointer;
@@ -216,11 +148,6 @@ li:nth-of-type(2){
     left: 0.7em;
 }
 
-/* .form-input .fa-eye-slash {
-    color: #110022;
-    padding: 0 1em 0 0;
-} */
-
 .fa-eye:before,
 .fa-eye-slash:before {
     padding-right: 1.3em;
@@ -251,10 +178,9 @@ form {
     font-weight: 700;
 }
 
-#create-account-btn,
-#notification button {
+#sign-in-btn{
     display: block;
-    background: #2F80ED;
+    background: rgb(228, 133, 51);
     border: 2px solid #FFFFFF;
     border-radius: 3em;
     padding: 1em 2em;
@@ -264,12 +190,15 @@ form {
     outline: none;
 }
 
-#create-account-btn {
+#sign-in-btn {
     width: 50%;
 }
 
 .sign-in-link {
-    color: #F2994A;
+    color: #2F80ED;
+}
+.retrieve-password-link{
+    color:#F24A4A;
 }
 
 /* Section: Notification Message after account creation */
@@ -296,24 +225,9 @@ form {
     padding: 2em 1em;
 }
 
-#notification i {
-    color: #27ae60;
-    font-size: 3em;
-}
-
-#notification-msg {
-    color: rgba(0, 0, 0, 0.754);
-}
 
 /* MEdia queries */
 @media screen and (max-width:369px) {
-
-    #email,
-    #password,
-    #full-name {
-        /* padding: 1.5em 0 1.5em 0.8em; */
-    }
-
     .select-account-type i {
         padding: 0 0.6em 0 0;
         font-size: 1.3em;
@@ -338,7 +252,7 @@ form {
         width: 70%;
     }
 
-    #create-account-btn {
+    #sign-in-btn {
         width: 35%;
     }
 }
@@ -365,7 +279,7 @@ form {
 
     }
 
-    #create-account-wrapper {
+    #sign-in-wrapper {
         background-color: #fff;
         padding: 0 0 2em 0;
         width: 60vw;
@@ -384,25 +298,18 @@ form {
         width: 100%;
     }
 
-    .select-account-type {
-        width: 100%;
-    }
-
-    #create-account-btn {
+     #sign-in-btn {
         width: 55%;
     }
 
-    #create-account-wrapper p {
+    #sign-in-wrapper p {
         color: #000;
-    }
-    .select-account-type  #select-input{
-        color: #fff;
-    }
+    }  
 
 }
 
 @media screen and (min-width:1024px) {
-    #create-account-wrapper {
+    #sign-in-wrapper {
         width: 50vw;
     }
 
@@ -412,11 +319,11 @@ form {
 }
 
 @media screen and (min-width:2560px) {
-    #create-account-wrapper {
+    #sign-in-wrapper {
         width: 30vw;
     }
 
 form {
-        width: 25dvw;
+        width: 25vw;
     }
 }
