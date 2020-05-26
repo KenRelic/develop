@@ -33,7 +33,7 @@ main {
     justify-content: center;
     align-items: center;
     background: #110022;
-    padding: 2em 0;
+    padding: 3.5em 0 2em 0;
 }
 
 #sign-in-wrapper {
@@ -179,17 +179,6 @@ form {
     background-color: #F24A4A;
 }
 
-::-webkit-input-placeholder {
-    color: #FFF;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-::-moz-placeholder {
-    color: #FFF;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
 
 #sign-in-btn{
     display: block;
