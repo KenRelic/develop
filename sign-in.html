@@ -28,23 +28,36 @@
         </div>
         <div id="menu-wrapper-shadow"></div>
     </header>
-    <main>
+     <main>
         <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p>
 
-         <header class="header">
-        <a href="index.html" id="header-logo">KeepTrack</a>
-        <i class="fas fa-bars" id="menu-icon"></i>
-        <i id="close-menu-btn" class="fas fa-times"></i>
-        <div id="menu-wrapper">
-            <div id="menu">
-                <a href="create-account.html">Create account</a>
-                <a href="sign-in.html">Sign in</a>
-                <a href="#why-keeptrack-section">Why KeepTrack<sup>&trade;</sup></a>
-                <a href="#pricing-section">Pricing</a>
-            </div>
+        <div id="sign-in-wrapper">
+            <h1 id="header">Sign in</h1>
+            <p>Create account to get started</p>
+            <p id="validation-error"></p>
+            <!-- Form-->
+            <form name="sign-in-form" action="" method="post">
+                <div class="form-group form-input">
+                    <i class="fas fa-envelope"></i>
+
+                    <input type="email" name="email-address" autocomplete="off" required id="email" required>
+                    <label class="label">Email</label>
+                </div>
+                <div class="form-group form-input">
+                    <i class="fas fa-lock"></i>
+
+                    <input type="password" name="password" autocomplete="off" required id="password" required>
+                    <label class="label">Password</label>
+                    <i id="show-hide-password" class="fas fa-eye"></i>
+                </div>
+                <button id="sign-in-btn" onclick=" return validateForm()" type="submit"> Create Account</button>
+            </form>
+            <p>Forgotten your password?<a href="#" class="retrieve-password-link"> get it here</a>
+            <p>Don't have an account yet? <a href="create-account.html" class="sign-in-link">Create account</a>
+            </p>
         </div>
-        <div id="menu-wrapper-shadow"></div>
-    </header>
+        <div id="recover-password-page">
+        </div>
     </main>
 
     <section id="loader-bg">
