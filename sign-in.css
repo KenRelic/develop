@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 :root{
-    font-size: 13px;
+    font-size: 11px;
 }
 /* CSS Reset */
 * {
@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Righteous', cursive;
-    background: #110022;
+    background: #ffffff;
     width: 100vw;
 }
 
@@ -33,7 +33,7 @@ main {
     justify-content: center;
     align-items: center;
     background: #110022;
-    padding: 3.5em 0 2em 0;
+    padding: 2em 0;
 }
 
 #sign-in-wrapper {
@@ -55,7 +55,7 @@ main {
     font-size: 1.4rem;
 }
 
-#section-header {
+#header {
     background: rgb(228, 133, 51);
     color: #fff;
     text-align: center;
@@ -82,7 +82,6 @@ main {
     position: relative;
     /* width: 100vw; */
 }
-
 
 .label{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -128,6 +127,23 @@ form input:valid + label.label{
 }
 form input::-ms-value + label.label{
     z-index: 3;
+}
+
+.account-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #27AE60;
+    width: 90%;
+    border: 2px solid #fff;
+    border-radius: 3em;
+    /* padding:1em 0 1em 0.8em; */
+    margin: 1em auto;
+    font-size: 0.9em;
+    font-weight: 700;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
+    
 }
 
 #show-hide-password {
@@ -178,7 +194,6 @@ form {
 .failed {
     background-color: #F24A4A;
 }
-
 
 #sign-in-btn{
     display: block;
@@ -288,7 +303,7 @@ form {
         border-radius: 5em 5em 1em 1em;
     }
 
-    #section-header {
+    #header {
         font-size: 3em;
     }
 
