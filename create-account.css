@@ -308,13 +308,7 @@ form {
 /* MEdia queries */
 @media screen and (max-width:369px) {
 
-    #email,
-    #password,
-    #full-name {
-        /* padding: 1.5em 0 1.5em 0.8em; */
-    }
-
-    .select-account-type i {
+     .select-account-type i {
         padding: 0 0.6em 0 0;
         font-size: 1.3em;
     }
@@ -342,7 +336,7 @@ form {
         width: 35%;
     }
 }
-@media screen and (min-height:560px) and (orientation:portrait) {
+@media screen and (min-height:650px) and (orientation:portrait) {
     main {
         height: 100vh;
     }
@@ -354,7 +348,7 @@ form {
     }
 }
 
-@media screen and (min-width:600px) {
+@media screen and (min-width:650px) {
     .account-type {
         box-shadow: 0 6px 25px rgba(39, 174, 95, 0.34);
     }
@@ -368,7 +362,7 @@ form {
     #create-account-wrapper {
         background-color: #fff;
         padding: 0 0 2em 0;
-        width: 60vw;
+        width: 70vw;
         border-radius: 5em 5em 1em 1em;
     }
 
@@ -377,7 +371,7 @@ form {
     }
 
     form {
-        width: 50vw;
+        width: 60vw;
     }
 
     .form-input {
