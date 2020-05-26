@@ -55,7 +55,7 @@ main {
     font-size: 1.4rem;
 }
 
-#header {
+#section-header {
     background: rgb(228, 133, 51);
     color: #fff;
     text-align: center;
@@ -286,7 +286,7 @@ form {
         border-radius: 5em 5em 1em 1em;
     }
 
-    #header {
+    #section-header {
         font-size: 3em;
     }
 
