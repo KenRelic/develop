@@ -18,7 +18,7 @@ html {
 }
 
 /* BUTTONS */
-button {
+#get-started-btn {
     display: block;
     background-color: #27ae60;
     padding: 1em 2em;
@@ -45,17 +45,13 @@ h2 {
     color: #2c0553;
 }
 
-.fas,
-.fa {
-    cursor: pointer;
-    font-size: 1.5em;
-}
 
 body {
     line-height: 1.5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
     font-size: 0.9em;
+    position: relative;
 }
 
 #header {
@@ -77,11 +73,50 @@ body {
 }
 
 #menu {
-    display: none;
+    display: block;
+    text-align: center;
+    right: 0;
+    background-color: #2c0553;
+    padding: 4em 2em;
+    width: 100vw;
+}
+#menu-icon{
+    display: block;
 }
 
 #menu a {
     display: block;
+    padding: 1em;
+    width: fit-content;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.483);
+}
+
+#menu a:hover {
+    color: #fff;
+}
+
+#menu-wrapper {
+    border-radius:0 0 0 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform-origin: top right;
+    clip-path: circle(0% at 100% 0%); 
+    transition: all 0.5s ease;  
+}
+#menu-wrapper-shadow{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505d2;
+    z-index: -2;
+    transition: all 0.4s ease;
 }
 
 .section {
@@ -287,9 +322,9 @@ main #about-the-team {
 
 #footer-main-elements #footer-logo {
     display: flex;
-     flex-direction:column;
-     justify-content: center;
-     align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #footer-main-elements #footer-logo a {
@@ -308,6 +343,10 @@ main #about-the-team {
     font-size: 1em;
     color: #fff
 }
+#media-icons i{
+    cursor: pointer;
+    font-size: 1.5em;
+}
 
 #media-icons * {
     padding: 0 0.5em 0 0.5em;
@@ -320,7 +359,7 @@ small {
     color: #ffffff3d;
 }
 
-@media screen and (min-width:768px) and (orientation:portrait) {
+@media screen and (min-width:600px) and (orientation:portrait) {
 
     body {
         font-size: 1.2em;
@@ -338,75 +377,59 @@ small {
         font-size: 1em;
     }
 
-    #get-started-btn {
-        width: 50%;
-    }
-    #menu {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: baseline;
-    }
-    
-    #menu a {
-        display: block;
-        margin: 0 0.9em;
-        font-size: 0.6em;
-        color: rgba(255, 255, 255, 0.462);
-    }
-    #menu-icon{
-        display:none;
-    }
-
-    #menu a:hover{
-        color:#fff;
-    }
-    #menu a:active{
-        border-bottom: 4px solid #27ae60;
-    }
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:600px) {
+    #menu-icon{
+        display: none;
+       }
+    
+#menu {
+    display: flex;
+    text-align: center;
+    right: 0;
+    background-color: unset;
+    padding:0;
+    width: unset;
+    align-items: baseline;
+    justify-content: flex-end;
+}
 
+#menu a {
+    display: block;
+    padding: 0;
+    width: initial;
+    margin: 0 0.5em;
+    color: rgba(255, 255, 255, 0.483);
+}
+
+#menu a:hover {
+    color: #fff;
+}
+
+#menu-wrapper {
+    border-radius:unset;
+    overflow: unset;
+    position: initial;
+    z-index: unset;
+    transform-origin: unset;
+    clip-path: unset;
+    transition: all 0.4s ease;  
+}
+    
+}
+
+@media screen and (min-width:768px) {
+    #banner-section{
+        padding-left: 2em;
+    }
     body {
-        font-size: 1.3em;
+        font-size: 1em;
     }
 
     h1 {
         font-size: 3em;
-    }
-
-
-    #menu {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: baseline;
-    }
-    
-     
-    #menu a {
-        display: block;
-        padding: 0 0.9em;
-        font-size: 0.9em;
-        color: rgba(255, 255, 255, 0.462);
-    }
-    #menu-icon{
-        display:none;
-    }
-
-    #menu a:hover{
-        color:#fff;
-    }
-    #menu a:active{
-        border-bottom: 4px solid #27ae60;
-    }
-    
-    #landing-page-img {
-        width: 60%;
-        margin-right: -35%;
-        margin-left: -1.3em;
-        margin-top: -30%;
-        filter: drop-shadow(0px 15px rgba(130, 55, 221, 0.258));
     }
 
     #card-wrapper {
@@ -424,9 +447,5 @@ small {
         padding: 1em;
     }
 
-
-    #get-started-btn {
-        width: 50%;
-    }
 
 }
