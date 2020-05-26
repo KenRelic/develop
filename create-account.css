@@ -26,6 +26,7 @@ a {
     color: #fff;
 }
 
+
 main {
     display: flex;
     flex-direction: column;
@@ -55,7 +56,7 @@ main {
     font-size: 1.4rem;
 }
 
-#header {
+#section-header {
     background: #2F80ED;
     color: #fff;
     text-align: center;
@@ -371,7 +372,7 @@ form {
         border-radius: 5em 5em 1em 1em;
     }
 
-    #header {
+    #section-header {
         font-size: 3em;
     }
 
