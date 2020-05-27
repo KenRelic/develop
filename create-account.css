@@ -35,7 +35,7 @@ main {
     justify-content: center;
     align-items: center;
     background-color: #110022;
-    padding: 1.5em 0 1em 0;
+    padding: 1em 0 3em 0;
 }
 
 #create-account-wrapper {
@@ -307,6 +307,7 @@ form input:valid+label.label {
     margin: 1em auto 1em auto;
     color: #fff;
     outline: none;
+    text-align: center;
 }
 
 #create-account-btn {
@@ -385,13 +386,16 @@ form input:valid+label.label {
     }
 }
 
-@media screen and (min-height:670px) and (orientation:portrait) {
+/* @media screen and (min-height:600px) and (orientation:portrait) {
     main {
         height: 100vh;
     }
-}
+} */
 
 @media screen and (min-width:600px) {
+    form{
+        padding:0;
+    }
     .account-type {
         box-shadow: 0 6px 25px rgba(39, 174, 95, 0.34);
     }
@@ -445,7 +449,7 @@ form input:valid+label.label {
 
 }
 
-@media screen and (min-width:768px) and (min-height:768px) {
+@media screen and (min-width:768px) and (min-height:900px) and (orientation:portrait{
     main {
         background-color: #110022;
         height: 100vh;
