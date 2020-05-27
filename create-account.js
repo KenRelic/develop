@@ -19,8 +19,8 @@ function validateForm() {
     }
     console.log(emailInput.value, nameInput.value, passwordInput.value, selectedOption)
     return createUser(emailInput.value, nameInput.value, passwordInput.value, selectedOption)
-
 }
+
 let togglePasswordIcon = document.getElementById('show-hide-password');
 togglePasswordIcon.addEventListener('click', showHidePassword);
 function showHidePassword() {
@@ -132,5 +132,6 @@ function createUser(fullName, email, password, accountType) {
 }
 
 
+export {localStorage} ;
 
 
