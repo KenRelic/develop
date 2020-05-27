@@ -8,17 +8,28 @@ function validateForm() {
     let passwordInput = createAccountForm['password'];
     let nameInput = createAccountForm['full-name'];
     let emailInput = createAccountForm['email'];
-    let organisation = document.querySelector('.account-type');
+    let organisation = selectedOption.innerText;
 
-    if (passwordInput.value == "" && nameInput.value == "" && emailInput.value == "") {
-        passwordInput.parentElement.classList.add('failed');
-        nameInput.parentElement.classList.add('failed');
-        emailInput.parentElement.classList.add('failed');
-        organisation.parentElement.classList.add('failed');
+    if (passwordInput.checkValidity() && nameInput.checkValidity() && emailInput.checkValidity() && organisation !== "") {
+
+        createUser(emailInput.value, nameInput.value, passwordInput.value, selectedOption)
+        // window.open('create-account.html');
+        // setTimeout(() => {
+        // window.open('index.html', '_self');
+        setTimeout(() => {
+            // Display confrimation page
+            document.getElementById('notification').style.display = "flex";
+        }, 300);
+        // },1000);
+        return true;
+    } else {
+        emailInput.checkValidity() ? '' : emailInput.parentElement.nextElementSibling.style.visibility = 'visible';
+        passwordInput.checkValidity() ? '' : passwordInput.parentElement.nextElementSibling.style.visibility = 'visible';
+        nameInput.checkValidity() ? '' : nameInput.parentElement.nextElementSibling.style.visibility = 'visible';
+        organisation !== "" ? '' : selectedOption.parentElement.nextElementSibling.style.visibility = 'visible';
         return false;
     }
-    console.log(emailInput.value, nameInput.value, passwordInput.value, selectedOption)
-    return createUser(emailInput.value, nameInput.value, passwordInput.value, selectedOption)
+
 }
 
 let togglePasswordIcon = document.getElementById('show-hide-password');
@@ -70,12 +81,13 @@ window.onclick = function (event) {
     } else {
         document.getElementById('select-account').style.display = "none";
         dropIcon.setAttribute('class', 'fas fa-sort-down');
-    }
-}
+    };
+};
 
 
 options.forEach(option => {
     option.addEventListener('click', () => {
+        selectedOption.parentElement.nextElementSibling.style.visibility = 'hidden';
         accountListLabel.style.top = "0.5em";
         accountListLabel.style.fontSize = "0.8em";
         accountListLabel.style.left = "2.9em";
@@ -89,8 +101,9 @@ options.forEach(option => {
             accountListLabel.style.fontSize = "1em";
             accountListLabel.style.left = "2.6em";
             targetSelectElem.style.padding = "2.4em 0 2.1em 2.6em";
-        }
-    })
+            selectedOption.parentElement.nextElementSibling.style.visibility = 'visible';
+        };
+    });
 });
 
 //CHECK IF THERE IS CONTENT IN THE INPUT THEN PREVENT ANIMATION
@@ -104,34 +117,47 @@ inputBoxes.forEach(box => {
         if (box.value !== "") {
             box.nextElementSibling.style.top = '0.4em';
             box.nextElementSibling.style.left = '2.7em';
+            // box.parentElement.nextElementSibling.style.visibility = 'hidden';
         } else {
             box.nextElementSibling.style.top = '2em';
             box.nextElementSibling.style.left = '2.6em';
+            box.id == "email" ? localStorage.hasOwnProperty(box.value) ?
+                box.parentElement.nextElementSibling.innerHTML = "**This email is already registered" :
+                box.parentElement.nextElementSibling.innerHTML = "**Please fill a valid Email" : ""
+            box.parentElement.nextElementSibling.style.visibility = 'visible';
         }
     });
-    box.addEventListener('input', ()=>{
-        if(box.validity.patternMismatch || box.validity.typeMismatch){
+    box.addEventListener('input', () => {
+        if (box.validity.patternMismatch || box.validity.typeMismatch) {
             box.parentElement.nextElementSibling.style.visibility = 'visible';
-            return false
-        }else{
+            box.id == "email" ? localStorage.hasOwnProperty(box.value) ? box.parentElement.nextElementSibling.innerHTML = "**This email is already registered" :
+                box.parentElement.nextElementSibling.innerHTML = "**Please fill a valid Email" : ""
+            box.parentElement.nextElementSibling.style.visibility = 'visible';
+        } else {
             box.parentElement.nextElementSibling.style.visibility = 'hidden';
         }
     })
 })
 //creat new user
-function createUser(fullName, email, password, accountType) {
+function createUser(email, fullName, password, accountType) {
     if (!localStorage.hasOwnProperty(email)) {
-        localStorage.setItem(email, { 'fullName': fullName, 'password': password, 'accountType': accountType })
-        // Display confrimation page
-        document.getElementById('notification').style.display = "flex";
-    } else {
-        // show error that the username is already taken
-        //or check on INPUT.. 
-
+        let newUser = {
+            name: fullName,
+            password: password,
+            accountType: accountType,
+            email: email
+        }
+        //save to localstorage
+        localStorage.setItem(email, JSON.stringify(newUser));
     }
 }
 
 
-export {localStorage} ;
-
+// window.onscroll = function(event){
+//     if(this.scrollY == 90){
+//         this.document.getElementById('menu').style.cbackgroundColor = 'red'
+//     }else{
+//         this.document.getElementById('menu').style.cbackgroundColor = 'initial'
+//     }
+// }
 
