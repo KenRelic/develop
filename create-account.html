@@ -28,51 +28,53 @@
         </div>
         <div id="menu-wrapper-shadow"></div>
     </header>
-    <main>
+     <main>
         <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p>
 
         <div id="create-account-wrapper">
-            <h1 id="section-header">Create account</h1>
+            <h1 id="header">Create account</h1>
             <p>Create account to get started</p>
-            <p id="validation-error"></p>
             <!-- Form-->
-            <form name="create-account-form" action="" onsubmit="return showConfirmation()" method="post">
+            <form name="create-account-form" action="" method="post">
                 <div class="form-group form-input">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="Full-name" id="full-name" autocomplete="off" required placeholder="Full Name"
-                        required>
+                    <input type="text" name="full_name" pattern="[a-zA-Z]+\s[a-zA-Z]+$" id="full-name"
+                        autocomplete="off" required>
+                    <label class="label">Full Name</label>
 
                 </div>
+                <span class="error-message">**First name then Last name</span>
                 <div class="form-group form-input">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" name="email-address" autocomplete="off"  required id="email" placeholder="Email"
-                        required>
+                    <input type="email" name="email" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required id="email" required>
+                    <label class="label">Email</label>
 
                 </div>
+                <span class="error-message">**Please fill a valid email</span>
                 <div class="form-group form-input">
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" autocomplete="off"  required id="password" placeholder="Password"
-                        required>
-
+                    <input type="password" name="password" autocomplete="off" required id="password" required>
+                    <label class="label">Password</label>
                     <i id="show-hide-password" class="fas fa-eye"></i>
-                    <!-- <i class="fas fa-eye-slash"></i> -->
-                    <!-- <i class="fas fa-eye"></i> -->
                 </div>
-                <div class="form-group select-account-type" id="select-account-type">
-                    <p id="select-input">Account type</p>
+                <span class="error-message">**Password field is required</span>
+                <div class="form-group select-account-type">
+                    <p id="select-input"></p>
+                    <label class="label" id="account-type-label">Account Type</label>
                     <i class="fas fa-sort-down" id="drop-down-icon"></i>
-                    <ul class="account-type" id="select-account">           
-                        <li>Organization</li>
-                        <li>Individual</li>
+                    <ul class="account-type" id="select-account">
+                        <li id="list-item1">Organization</li>
+                        <li id="list-item2">Individual</li>
                     </ul>
                 </div>
-
+                <span class="error-message">**Field is required</span>
                 <button id="create-account-btn" onclick=" return validateForm()" type="submit"> Create Account</button>
             </form>
             <p>Have account already? <a href="sign-in.html" class="sign-in-link">Sign in</a>
             </p>
         </div>
     </main>
+
 
     <section id="notification">
         <div id="notification-contents">
