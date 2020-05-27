@@ -35,7 +35,7 @@ main {
     justify-content: center;
     align-items: center;
     background-color: #110022;
-    /* padding: 3.5em 0 2em 0; */
+    padding: 1.5em 0 1em 0;
 }
 
 #create-account-wrapper {
@@ -385,7 +385,7 @@ form input:valid+label.label {
     }
 }
 
-@media screen and (min-height:600px) and (orientation:portrait) {
+@media screen and (min-height:670px) and (orientation:portrait) {
     main {
         height: 100vh;
     }
@@ -445,7 +445,7 @@ form input:valid+label.label {
 
 }
 
-@media screen and (min-width:768px) and (min-height:767px) {
+@media screen and (min-width:768px) and (min-height:768px) {
     main {
         background-color: #110022;
         height: 100vh;
