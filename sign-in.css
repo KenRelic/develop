@@ -75,6 +75,9 @@ main {
     color: #F24A4A;
     padding: 0.5em;
     border-radius: 0.4em;
+    margin-bottom: -1.1em;
+    visibility: hidden;
+   
 
 }
 
@@ -205,6 +208,7 @@ form {
     margin: 3em auto 1em auto;
     color: #fff;
     outline: none;
+    text-align: center;
 }
 
 #sign-in-btn {
@@ -217,6 +221,8 @@ form {
 .retrieve-password-link{
     color:#F24A4A;
 }
+
+
 
 /* Section: Notification Message after account creation */
 
