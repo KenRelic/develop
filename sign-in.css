@@ -34,6 +34,7 @@ main {
     align-items: center;
     background: #110022;
     padding: 2em 0;
+    height: 100vh;
 }
 
 #sign-in-wrapper {
@@ -44,7 +45,7 @@ main {
     align-items: center;
     flex-direction: column;
     padding: 2em 0;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #keep-track-logo a {
@@ -56,7 +57,7 @@ main {
 }
 
 #header {
-    background: rgb(228, 133, 51);
+    background: #F24A4A;
     color: #fff;
     text-align: center;
     padding: 0.5em;
@@ -91,7 +92,7 @@ main {
     font-size:1.1em;
     font-weight:700;
     padding-bottom: 0.5em;
-    color: #fff;
+    color: #110022;
     background-color: transparent;
     display: block;
     width: inherit;
@@ -111,43 +112,42 @@ main {
     padding:2em 0 1.5em 0.8em;
     font-size:1em;
     font-weight: 700;
-    color: #fff;
+    color: #110022;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
     z-index: 2;
 }
 
-#email:focus + label.label,
-#password:focus + label.label{
-    top: 0.5em;
-    font-size: 0.9em;
-    font-weight: normal;
-}
-
-form input:valid + label.label{
-    top:0.5em;
-    font-size: 0.8em;
-    font-weight: normal;
-}
-form input::-ms-value + label.label{
-    z-index: 3;
-}
-
-.account-type {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #27AE60;
-    width: 90%;
-    border: 2px solid #fff;
-    border-radius: 3em;
-    /* padding:1em 0 1em 0.8em; */
-    margin: 1em auto;
-    font-size: 0.9em;
+label.label,
+#account-type-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
     font-weight: 700;
-    position: relative;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
-    
+    padding-bottom: 0.5em;
+    color: #110022;
+    background-color: transparent;
+    display: block;
+    width: inherit;
+    position: absolute;
+    left: 2.6em;
+    top: 2em;
+    z-index: 0;
+    transition: all 0.4s ease;
 }
+
+#account-type-label {
+    top: 1.6em;
+}
+
+#email:focus+label.label,
+#password:focus+label.label,
+#full-name:focus+label.label,
+#select-input:focus+#acccount-type-label {
+    top: 0.4em;
+    font-weight: 500;
+    color: #110022;
+    left: 2.7em;
+}
+
 
 #show-hide-password {
     position: initial;
@@ -156,7 +156,7 @@ form input::-ms-value + label.label{
 
 .form-input {
     width: 90%;
-    background-color: #27AE60;
+    background-color: #fff;
     border: 2px solid #FFFFFF;
     border-radius: 3em;
     padding: 0 1em 0 2em;
@@ -173,7 +173,7 @@ form input::-ms-value + label.label{
 .form-input i {
     position: absolute;
     display: inline-block;
-    color: #110022;
+    color: #F24A4A;
     padding: 0 0 0 0.6em;
     outline: none;
     border: none;
@@ -186,7 +186,7 @@ form input::-ms-value + label.label{
     position: absolute;
     top: 0;
     right: 0.5em;
-    top: 1.2em;
+    top: 2em;
 }
 
 form {
@@ -200,8 +200,8 @@ form {
 
 #sign-in-btn{
     display: block;
-    background: rgb(228, 133, 51);
-    border: 2px solid #FFFFFF;
+    background: #F24A4A;
+    border: 2px solid #fff;
     border-radius: 3em;
     padding: 1em 2em;
     cursor: pointer;
@@ -224,7 +224,7 @@ form {
 
 
 
-/* Section: Notification Message after account creation */
+
 
 #notification {
     display: flex;
@@ -249,49 +249,10 @@ form {
 }
 
 
-/* MEdia queries */
-@media screen and (max-width:369px) {
-    .select-account-type i {
-        padding: 0 0.6em 0 0;
-        font-size: 1.3em;
-    }
-
-    #show-hide-password {
-        padding: 0 0.6em 0 0;
-    }
-
-    .form-input i {
-        padding-left: 0.4em;
-    }
-
-}
-
 @media screen and (min-width:600px) {
-    .form-input {
-        width: 70%;
+    form{
+        padding:0;
     }
-
-    .select-account-type {
-        width: 70%;
-    }
-
-    #sign-in-btn {
-        width: 35%;
-    }
-}
-@media screen and (min-height:560px) and (orientation:portrait) {
-    main {
-        height: 100vh;
-    }
-}
-
-@media screen and (min-width:768px) and (min-height:767px) {
-    main {
-        height: 100vh;
-    }
-}
-
-@media screen and (min-width:600px) {
     .account-type {
         box-shadow: 0 6px 25px rgba(39, 174, 95, 0.34);
     }
@@ -305,8 +266,14 @@ form {
     #sign-in-wrapper {
         background-color: #fff;
         padding: 0 0 2em 0;
-        width: 60vw;
+        width: 85vw;
         border-radius: 5em 5em 1em 1em;
+        overflow: hidden;
+    }
+
+    .form-input,
+    .select-account-type {
+        background-color: rgba(137, 137, 137, 0.489);
     }
 
     #header {
@@ -314,30 +281,71 @@ form {
     }
 
     form {
-        width: 50vw;
+        width: 75vw;
     }
 
     .form-input {
         width: 100%;
     }
 
-     #sign-in-btn {
+    .select-account-type {
+        width: 100%;
+    }
+
+    #sign-in-btn {
         width: 55%;
     }
 
     #sign-in-wrapper p {
         color: #000;
-    }  
+    }
+
+    .select-account-type #select-input {
+        color: #110022;
+    }
+
+}
+
+@media screen and (min-width:768px) and (min-height:900px) and (orientation:portrait){
+    main {
+        background-color: #110022;
+        height: 100vh;
+    }
+
+}
+
+@media screen and (min-width:768px) {
+    main {
+        background-color: #110022;
+        height: 100vh;
+    }
+
+    #sign-in-wrapper {
+        width: 70vw;
+    }
+
+    form {
+        width: 60vw;
+    }
+
+    #notification-contents {
+        width: 50vw;
+    }
 
 }
 
 @media screen and (min-width:1024px) {
     #sign-in-wrapper {
-        width: 50vw;
+        width: 60vw;
     }
 
-form {
-        width: 40vw;
+    form {
+        width: 50vw;
+    }
+    #notification-contents {
+        width: 30vw;
+        padding: 3em 1em;
+        font-size: 1.5em;
     }
 }
 
@@ -346,7 +354,12 @@ form {
         width: 30vw;
     }
 
-form {
+    form {
         width: 25vw;
+    }
+    #notification-contents {
+        width: 30vw;
+        padding: 5em;
+        font-size: 2em;
     }
 }
