@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-:root{
+
+:root {
     font-size: 13px;
 }
+
 /* CSS Reset */
 * {
     padding: 0;
@@ -26,15 +28,14 @@ a {
     color: #fff;
 }
 
-
 main {
     display: flex;
     flex-direction: column;
     width: 100vw;
     justify-content: center;
     align-items: center;
-    background: #110022;
-    padding: 3.5em 0 2em 0;
+    background-color: #110022;
+    /* padding: 3.5em 0 2em 0; */
 }
 
 #create-account-wrapper {
@@ -45,7 +46,6 @@ main {
     align-items: center;
     flex-direction: column;
     padding: 2em 0;
-    overflow: hidden;
 }
 
 #keep-track-logo a {
@@ -56,7 +56,7 @@ main {
     font-size: 1.4rem;
 }
 
-#section-header {
+#header {
     background: #2F80ED;
     color: #fff;
     text-align: center;
@@ -72,6 +72,10 @@ main {
     text-align: center;
 }
 
+.select-account-type #select-input {
+    color: #110022;
+}
+
 #create-account-wrapper #validation-error {
     color: #F24A4A;
     padding: 0.5em;
@@ -81,7 +85,6 @@ main {
 
 .form-group {
     position: relative;
-    /* width: 100vw; */
 }
 
 #email,
@@ -91,34 +94,44 @@ main {
     outline: none;
     border: none;
     flex: 1;
-    padding:2em 0 1.5em 0.8em;
-    font-size: 0.8em;
+    padding: 1.5em 0 1.5em 0.8em;
+    font-size: 1.2em;
     font-weight: 700;
-    color: #fff;
+    color: #110022;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
+    z-index: 3;
 }
 
-#email:focus #email::placeholder {
-    color: rgba(255, 255, 255, 0.306);
+.error-message {
+    display: block;
+    width: inherit;
+    color: #F24A4A;
+    text-align: center;
+    margin-top: -1em;
+    font-size: 0.8em;
+    visibility: hidden;
 }
-
 
 .select-account-type,
 .account-type {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #27AE60;
+    background-color: #fff;
     width: 90%;
     border: 2px solid #fff;
     border-radius: 3em;
-    /* padding:1em 0 1em 0.8em; */
     margin: 1em auto;
-    font-size: 0.9em;
+    font-size: 1.1em;
     font-weight: 700;
     position: relative;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
-    
+
+}
+
+.select-account-type {
+    padding: 2.4em 0 2.1em 2.6em;
+    font-size: 1.1em;
 }
 
 .account-type {
@@ -133,22 +146,24 @@ main {
     left: -50%;
     right: -50%;
     border-radius: 0 0 2em 2em;
-    background-color: #fff; 
+    background-color: #fff;
     box-shadow: 0 6px 25px rgba(28, 29, 32, 0.34);
-
 }
 
-li{
+
+li {
     display: block;
     list-style: none;
     padding: 0.8em;
-    text-align: center; 
+    text-align: center;
 }
-li:hover{
+
+li:hover {
     background-color: #2F80ED;
     color: #FFF;
 }
-li:nth-of-type(2){
+
+li:nth-of-type(2) {
     border-bottom: 1px solid rgb(195, 195, 195);
     border-top: 1px solid rgb(195, 195, 195);
 }
@@ -156,35 +171,38 @@ li:nth-of-type(2){
 .select-account-type i {
     font-size: 1.3em;
     cursor: pointer;
+    color: #2F80ED;
 }
 
-.select-account-type  #select-input{
-    padding:1.5em 0 1.5em 0.8em;
-    padding-left: 3em;
+.select-account-type #select-input {
+    padding: 0;
     font-weight: 700;
     flex: 1;
     text-align: start;
-  
+    display: none;
 }
-#select-account{
+
+#select-account {
     display: none;
     transition: all 0.3s linear;
 }
 
-.fa-sort-down:before{
+.fa-sort-down:before {
     content: "\f0dd";
     padding-right: 1em;
     position: absolute;
     right: 0.5em;
     top: 1em;
 }
-.fa-sort-up:before{
+
+.fa-sort-up:before {
     content: "\f0de";
     padding-right: 1em;
     position: absolute;
     right: 0.5em;
     top: 1.2em;
 }
+
 #show-hide-password {
     position: initial;
     cursor: pointer;
@@ -192,7 +210,7 @@ li:nth-of-type(2){
 
 .form-input {
     width: 90%;
-    background-color: #27AE60;
+    background-color: #fff;
     border: 2px solid #FFFFFF;
     border-radius: 3em;
     padding: 0 1em 0 2em;
@@ -206,20 +224,16 @@ li:nth-of-type(2){
 
 }
 
+
 .form-input i {
     position: absolute;
     display: inline-block;
-    color: #110022;
+    color: #2F80ED;
     padding: 0 0 0 0.6em;
     outline: none;
     border: none;
     left: 0.7em;
 }
-
-/* .form-input .fa-eye-slash {
-    color: #110022;
-    padding: 0 1em 0 0;
-} */
 
 .fa-eye:before,
 .fa-eye-slash:before {
@@ -227,7 +241,8 @@ li:nth-of-type(2){
     position: absolute;
     top: 0;
     right: 0.5em;
-    top: 1.2em;
+    top: 2em;
+    z-index: 4;
 }
 
 form {
@@ -239,16 +254,46 @@ form {
     background-color: #F24A4A;
 }
 
-::-webkit-input-placeholder {
-    color: #FFF;
-    font-size: 1.1rem;
+label.label,
+#account-type-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
     font-weight: 700;
+    padding-bottom: 0.5em;
+    color: #110022;
+    background-color: transparent;
+    display: block;
+    width: inherit;
+    position: absolute;
+    left: 2.6em;
+    top: 2em;
+    z-index: 0;
+    transition: all 0.4s ease;
 }
 
-::-moz-placeholder {
-    color: #FFF;
-    font-size: 1.1rem;
-    font-weight: 700;
+#account-type-label {
+    top: 1.6em;
+}
+
+#email:focus+label.label,
+#password:focus+label.label,
+#full-name:focus+label.label,
+#select-input:focus+#acccount-type-label {
+    top: 0.4em;
+    font-weight: 500;
+    color: #110022;
+    left: 2.7em;
+}
+
+#acccount-type-label {
+    cursor: pointer;
+}
+
+form input:valid+label.label {
+    top: 0.4em;
+    left: 2.9em;
+    color: #110022;
+    font-weight: 500;
 }
 
 #create-account-btn,
@@ -259,7 +304,7 @@ form {
     border-radius: 3em;
     padding: 1em 2em;
     cursor: pointer;
-    margin: 3em auto 1em auto;
+    margin: 1em auto 1em auto;
     color: #fff;
     outline: none;
 }
@@ -275,7 +320,7 @@ form {
 /* Section: Notification Message after account creation */
 
 #notification {
-    display: flex;
+    /* display: flex; */
     display: none;
     justify-content: center;
     align-items: center;
@@ -286,6 +331,7 @@ form {
     top: 0;
     left: 0;
     background-color: #110022f5;
+    z-index: 5;
 }
 
 #notification-contents {
@@ -293,12 +339,13 @@ form {
     height: auto;
     width: 90%;
     border-radius: 1em;
-    padding: 2em 1em;
+    padding: 4em 1em;
 }
 
 #notification i {
     color: #27ae60;
     font-size: 3em;
+    margin-bottom: 0.5em;
 }
 
 #notification-msg {
@@ -308,7 +355,7 @@ form {
 /* MEdia queries */
 @media screen and (max-width:369px) {
 
-     .select-account-type i {
+    .select-account-type i {
         padding: 0 0.6em 0 0;
         font-size: 1.3em;
     }
@@ -319,6 +366,7 @@ form {
 
     .form-input i {
         padding-left: 0.4em;
+        top: 2.3em;
     }
 
 }
@@ -336,19 +384,14 @@ form {
         width: 35%;
     }
 }
-@media screen and (min-height:650px) and (orientation:portrait) {
+
+@media screen and (min-height:600px) and (orientation:portrait) {
     main {
         height: 100vh;
     }
 }
 
-@media screen and (min-width:768px) and (min-height:767px) {
-    main {
-        height: 100vh;
-    }
-}
-
-@media screen and (min-width:650px) {
+@media screen and (min-width:600px) {
     .account-type {
         box-shadow: 0 6px 25px rgba(39, 174, 95, 0.34);
     }
@@ -362,16 +405,22 @@ form {
     #create-account-wrapper {
         background-color: #fff;
         padding: 0 0 2em 0;
-        width: 70vw;
+        width: 85vw;
         border-radius: 5em 5em 1em 1em;
+        overflow: hidden;
     }
 
-    #section-header {
+    .form-input,
+    .select-account-type {
+        background-color: rgba(137, 137, 137, 0.489);
+    }
+
+    #header {
         font-size: 3em;
     }
 
     form {
-        width: 60vw;
+        width: 75vw;
     }
 
     .form-input {
@@ -389,19 +438,53 @@ form {
     #create-account-wrapper p {
         color: #000;
     }
-    .select-account-type  #select-input{
-        color: #fff;
+
+    .select-account-type #select-input {
+        color: #110022;
+    }
+
+}
+
+@media screen and (min-width:768px) and (min-height:767px) {
+    main {
+        background-color: #110022;
+        height: 100vh;
+    }
+
+}
+
+@media screen and (min-width:768px) {
+    main {
+        background-color: #110022;
+        height: 100vh;
+    }
+
+    #create-account-wrapper {
+        width: 70vw;
+    }
+
+    form {
+        width: 60vw;
+    }
+
+    #notification-contents {
+        width: 50vw;
     }
 
 }
 
 @media screen and (min-width:1024px) {
     #create-account-wrapper {
-        width: 50vw;
+        width: 60vw;
     }
 
-form {
-        width: 40vw;
+    form {
+        width: 50vw;
+    }
+    #notification-contents {
+        width: 30vw;
+        padding: 3em 1em;
+        font-size: 1.5em;
     }
 }
 
@@ -410,7 +493,12 @@ form {
         width: 30vw;
     }
 
-form {
-        width: 25dvw;
+    form {
+        width: 25vw;
+    }
+    #notification-contents {
+        width: 30vw;
+        padding: 5em;
+        font-size: 2em;
     }
 }
