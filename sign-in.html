@@ -29,26 +29,27 @@
         <div id="menu-wrapper-shadow"></div>
     </header>
     <main>
-<!--         <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p> -->
+        <!-- <p id="keep-track-logo"><a href="index.html">KeepTrack&trade;</a></p> -->
 
         <div id="sign-in-wrapper">
             <h1 id="header">Sign in</h1>
-            <p></p>
+            <!-- <p>Create account to get started</p> -->
             <p id="validation-error"></p>
             <!-- Form-->
             <form name="sign-in-form">
                 <div class="form-group form-input">
                     <i class="fas fa-envelope"></i>
-
                     <input type="email" name="email-address" autocomplete="off" required id="email" required>
                     <label class="label">Email</label>
                 </div>
                 <div class="form-group form-input">
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" autocomplete="off" required id="password" required>
+                    <input type="password" name="password" autocomplete="off"
+                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required id="password" required>
                     <label class="label">Password</label>
                     <i id="show-hide-password" class="fas fa-eye"></i>
                 </div>
+
                 <input type="button" id="sign-in-btn" value="Sign in">
             </form>
             <p>Forgotten your password?<a href="#" class="retrieve-password-link"> get it here</a>
@@ -58,12 +59,28 @@
         <div id="recover-password-page">
         </div>
     </main>
-
+    <section id="retrieve-password-page">
+        <div id="retrieve-content">
+            <header id="retrieve-password-header">Retrieve password</header>
+            <p>Enter your email address</p>
+            <input type="email" name="email-address" autocomplete="off" required id="retrieval-email" required>
+            <input type="button" id="retrieve-password-btn" value="Retrieve password">
+            <div id="retrieval-request-confirmation">
+                <div id="confirmation-content">
+                    <i class="fas fa-envelope"></i>
+                    <p id="confirmation-msg">An Email has been sent for you to confirm</p>
+                    <input  type="button" id="to-signin-btn" value="goto sign in page">
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="loader-bg">
         <div id="loader-content">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
         </div>
     </section>
     <script src="main.js"></script>
