@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-:root{
-    font-size: 13px;
+
+:root {
+    font-size: 12px;
 }
+
 /* CSS Reset */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
+html{
+    background-color: #110022;
+}
 body {
     font-family: 'Righteous', cursive;
     background: #ffffff;
@@ -30,11 +34,91 @@ main {
     display: flex;
     flex-direction: column;
     width: 100vw;
+    height:calc(100vh - 4em);
     justify-content: center;
     align-items: center;
     background: #110022;
     padding: 2em 0;
+    border: 8px solid #fff;
+}
+
+.header {
+    padding: 1em;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #110022;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#menu {
+    display: block;
+    text-align: center;
+    right: 0;
+    background-color: rgb(218, 42, 42);
+    padding: 4em 2em;
+    width: 100vw;
+}
+
+#menu-icon,
+#close-menu-btn {
+    display: block;
+    cursor: pointer;
+    pointer-events: fill;
+}
+
+#close-menu-btn {
+    position: absolute;
+    z-index: 2;
+    top: 1.5em;
+    right: 1.5em;
+    display: none;
+
+}
+
+#menu a {
+    display: block;
+    padding: 1em;
+    width: fit-content;
+    margin: 0 auto;
+    color: #fff;
+}
+
+
+
+#menu-wrapper {
+    border-radius: 0 0 0 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -ms-transform-origin: top right;
+    -o-transform-origin: top right;
+    transform-origin: top right;
+    -webkit-clip-path: circle(0% at 100% 0%);
+    -moz-clip-path: circle(0% at 100% 0%);
+    -ms-clip-path: circle(0% at 100% 0%);
+    -o-clip-path: circle(0% at 100% 0%);
+    transition: all 0.5s ease;
+}
+
+#menu-wrapper-shadow {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
+    background-color: #000000d2;
+    z-index: -2;
+    transition: all 0.4s ease;
 }
 
 #sign-in-wrapper {
@@ -45,11 +129,11 @@ main {
     align-items: center;
     flex-direction: column;
     padding: 2em 0;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #keep-track-logo a {
-    display: block;
+    display: none;
     line-height: 1.8em;
     text-align: center;
     color: #27ae60;
@@ -72,14 +156,15 @@ main {
     text-align: center;
 }
 
+#sign-in-wrapper a:hover{
+    text-decoration: underline grey;
+}
+
 #sign-in-wrapper #validation-error {
     color: #F24A4A;
     padding: 0.5em;
     border-radius: 0.4em;
-    margin-bottom: -1.1em;
     visibility: hidden;
-   
-
 }
 
 .form-group {
@@ -87,10 +172,10 @@ main {
     /* width: 100vw; */
 }
 
-.label{
+.label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:1.1em;
-    font-weight:700;
+    font-size: 1.1em;
+    font-weight: 700;
     padding-bottom: 0.5em;
     color: #110022;
     background-color: transparent;
@@ -109,44 +194,25 @@ main {
     outline: none;
     border: none;
     flex: 1;
-    padding:2em 0 1.5em 0.8em;
-    font-size:1em;
+    padding: 2em 0 1.5em 0.8em;
+    font-size: 1em;
     font-weight: 700;
     color: #110022;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
     z-index: 2;
 }
 
-label.label,
-#account-type-label {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1em;
-    font-weight: 700;
-    padding-bottom: 0.5em;
-    color: #110022;
-    background-color: transparent;
-    display: block;
-    width: inherit;
-    position: absolute;
-    left: 2.6em;
-    top: 2em;
-    z-index: 0;
-    transition: all 0.4s ease;
-}
-
-#account-type-label {
-    top: 1.6em;
-}
-
 #email:focus+label.label,
-#password:focus+label.label,
-#full-name:focus+label.label,
-#select-input:focus+#acccount-type-label {
-    top: 0.4em;
-    font-weight: 500;
-    color: #110022;
-    left: 2.7em;
+#password:focus+label.label {
+    top: 0.5em;
+    font-weight: normal;
 }
+
+form input:valid+label.label {
+    top: 0.5em;
+    font-weight: normal;
+}
+
 
 
 #show-hide-password {
@@ -187,6 +253,7 @@ label.label,
     top: 0;
     right: 0.5em;
     top: 2em;
+    z-index: 4;
 }
 
 form {
@@ -198,17 +265,20 @@ form {
     background-color: #F24A4A;
 }
 
-#sign-in-btn{
+#sign-in-btn {
     display: block;
     background: #F24A4A;
-    border: 2px solid #fff;
+    border: 2px solid #FFFFFF;
     border-radius: 3em;
     padding: 1em 2em;
     cursor: pointer;
     margin: 3em auto 1em auto;
     color: #fff;
     outline: none;
-    text-align: center;
+}
+
+#sign-in-btn:hover{
+    background:#27ae60;
 }
 
 #sign-in-btn {
@@ -218,15 +288,14 @@ form {
 .sign-in-link {
     color: #2F80ED;
 }
-.retrieve-password-link{
-    color:#F24A4A;
+
+.retrieve-password-link {
+    color: #F24A4A;
 }
 
+/* Section: Notification Message after account creation */
 
-
-
-
-#notification {
+#loader-bg {
     display: flex;
     display: none;
     justify-content: center;
@@ -238,25 +307,159 @@ form {
     top: 0;
     left: 0;
     background-color: #110022f5;
+    position: absolute;
+    z-index: 10;
 }
 
-#notification-contents {
+#loader-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
     height: auto;
     width: 90%;
     border-radius: 1em;
     padding: 2em 1em;
+    margin: 0 auto;
+}
+
+#loader-content div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
+    margin: 0 auto;
+    animation:loader3 0.5s infinite linear  ;
+}
+
+#loader-content div >  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #ffffff30;
+    width: 30vw;
+    height: 30vw;
+    margin: 0 auto;
+    animation:loader2 1s infinite linear reverse ;
+}
+
+#loader-content div >  div > div{
+    background-color: #ffffff9e;
+    width: 20vw;
+    height: 20vw;
+    animation:loader 1s infinite linear ;
+}
+@keyframes loader{
+    from {
+        width: 0vw;
+        height: 0vw;
+    }
+    to{
+        width: 20vw;
+        height: 20vw;
+    }
+}
+@keyframes loader2{
+    from {
+        width: 0vw;
+        height: 0vw;
+    }
+    to{
+        width: 30vw;
+        height: 30vw;
+    }
+}
+@keyframes loader3{
+    from {
+        width: 0vw;
+        height: 0vw;
+    }
+    to{
+        width: 40vw;
+        height: 40vw;
+    }
+}
+/* MEdia queries */
+@media screen and (max-width:369px) {
+      #show-hide-password {
+        padding: 0 0.6em 0 0;
+    }
+
+    .form-input i {
+        padding-left: 0.4em;
+    }
+
+}
+
+@media screen and (min-width:500px) {
+    .form-input {
+        width: 80%;
+    }
+
+    .select-account-type {
+        width: 70%;
+    }
+
+    #sign-in-btn {
+        width: 35%;
+    }
 }
 
 
-@media screen and (min-width:600px) {
-    form{
-        padding:0;
+
+
+@media screen and (min-width:768px) and (min-height:767px) {
+    main {
+        height: 100vh;
     }
-    .account-type {
-        box-shadow: 0 6px 25px rgba(39, 174, 95, 0.34);
+}
+
+@media screen and (min-width:600px) {
+    main{
+        height: initial;
+        border: none;
+    }
+    #menu-icon {
+        display: none;
     }
 
+    #menu {
+        display: flex;
+        text-align: center;
+        right: 0;
+        background-color: unset;
+        padding: 0 2em;
+        width: unset;
+        align-items: baseline;
+        justify-content: flex-end;
+    }
+
+    #menu a {
+        display: block;
+        padding: 0;
+        width: initial;
+        margin: 0 0.5em;
+        color: rgba(255, 255, 255, 0.483);
+    }
+
+    #menu a:hover {
+        color: #fff;
+    }
+
+    #menu-wrapper {
+        border-radius: unset;
+        overflow: unset;
+        position: initial;
+        z-index: unset;
+        transform-origin: unset;
+        clip-path: unset;
+        transition: all 0.4s ease;
+    }
     #keep-track-logo a {
         font-size: 2rem;
         padding: 1em 0;
@@ -266,14 +469,8 @@ form {
     #sign-in-wrapper {
         background-color: #fff;
         padding: 0 0 2em 0;
-        width: 85vw;
+        width: 60vw;
         border-radius: 5em 5em 1em 1em;
-        overflow: hidden;
-    }
-
-    .form-input,
-    .select-account-type {
-        background-color: rgba(137, 137, 137, 0.489);
     }
 
     #header {
@@ -281,14 +478,10 @@ form {
     }
 
     form {
-        width: 75vw;
+        width: 50vw;
     }
 
     .form-input {
-        width: 100%;
-    }
-
-    .select-account-type {
         width: 100%;
     }
 
@@ -299,53 +492,34 @@ form {
     #sign-in-wrapper p {
         color: #000;
     }
-
-    .select-account-type #select-input {
-        color: #110022;
+    .form-input,
+    .select-account-type {
+        background-color: rgba(137, 137, 137, 0.489);
     }
+
 
 }
 
-@media screen and (min-width:768px) and (min-height:900px) and (orientation:portrait){
-    main {
-        background-color: #110022;
-        height: 100vh;
+@media screen and (max-height:500px) and (max-width:599px){
+    #sign-in-wrapper{
+        overflow-y: auto;
     }
-
-}
-
-@media screen and (min-width:768px) {
-    main {
-        background-color: #110022;
-        height: 100vh;
-    }
-
-    #sign-in-wrapper {
-        width: 70vw;
-    }
-
-    form {
-        width: 60vw;
-    }
-
-    #notification-contents {
-        width: 50vw;
+  main{
+        border: none;
+        height: fit-content;
+       padding: 0;
+        overflow: auto;
     }
 
 }
 
 @media screen and (min-width:1024px) {
     #sign-in-wrapper {
-        width: 60vw;
+        width: 50vw;
     }
 
     form {
-        width: 50vw;
-    }
-    #notification-contents {
-        width: 30vw;
-        padding: 3em 1em;
-        font-size: 1.5em;
+        width: 40vw;
     }
 }
 
@@ -356,10 +530,5 @@ form {
 
     form {
         width: 25vw;
-    }
-    #notification-contents {
-        width: 30vw;
-        padding: 5em;
-        font-size: 2em;
     }
 }
