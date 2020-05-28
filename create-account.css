@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 :root {
-    font-size: 13px;
+    font-size: 10px;
+    /* line-height: 1; */
 }
 
 /* CSS Reset */
@@ -11,9 +12,13 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #110022;
+}
+
 body {
     font-family: 'Righteous', cursive;
-    background: #110022;
+    /* background: #ffffff; */
     width: 100vw;
 }
 
@@ -32,10 +37,90 @@ main {
     display: flex;
     flex-direction: column;
     width: 100vw;
+    height: calc(100vh - 4em);
     justify-content: center;
     align-items: center;
+    padding: 2em 0;
+    border: 8px solid #fff;
+}
+
+.header {
+    padding: 1em;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #110022;
-    padding: 1em 0 3em 0;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#menu {
+    display: block;
+    text-align: center;
+    right: 0;
+    background-color: rgb(42, 86, 218);
+    padding: 4em 2em;
+    width: 100vw;
+}
+
+#menu-icon,
+#close-menu-btn {
+    display: block;
+    cursor: pointer;
+    pointer-events: fill;
+    font-size: 2em;
+}
+
+#close-menu-btn {
+    position: absolute;
+    z-index: 2;
+    top: 0.5em;
+    right: 0.5em;
+    display: none;
+
+}
+
+#menu a {
+    display: block;
+    padding: 1.2em;
+    width: fit-content;
+    margin: 0 auto;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#menu-wrapper {
+    border-radius: 0 0 0 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -ms-transform-origin: top right;
+    -o-transform-origin: top right;
+    transform-origin: top right;
+    -webkit-clip-path: circle(0% at 100% 0%);
+    -moz-clip-path: circle(0% at 100% 0%);
+    -ms-clip-path: circle(0% at 100% 0%);
+    -o-clip-path: circle(0% at 100% 0%);
+    transition: all 0.5s ease;
+}
+
+#menu-wrapper-shadow {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000d2;
+    z-index: -2;
+    transition: all 0.4s ease;
 }
 
 #create-account-wrapper {
@@ -46,10 +131,11 @@ main {
     align-items: center;
     flex-direction: column;
     padding: 2em 0;
+    overflow: hidden;
 }
 
 #keep-track-logo a {
-    display: block;
+    display: none;
     line-height: 1.8em;
     text-align: center;
     color: #27ae60;
@@ -70,6 +156,10 @@ main {
     color: #fff;
     font-size: 1em;
     text-align: center;
+}
+
+#create-account-wrapper a:hover {
+    text-decoration: underline grey;
 }
 
 .select-account-type #select-input {
@@ -221,7 +311,6 @@ li:nth-of-type(2) {
     overflow: hidden;
     outline: none;
     position: relative;
-
 }
 
 
@@ -314,6 +403,10 @@ form input:valid+label.label {
     width: 50%;
 }
 
+#create-account-btn:hover {
+    background: #27ae60;
+}
+
 .sign-in-link {
     color: #F2994A;
 }
@@ -356,11 +449,6 @@ form input:valid+label.label {
 /* MEdia queries */
 @media screen and (max-width:369px) {
 
-    .select-account-type i {
-        padding: 0 0.6em 0 0;
-        font-size: 1.3em;
-    }
-
     #show-hide-password {
         padding: 0 0.6em 0 0;
     }
@@ -369,16 +457,12 @@ form input:valid+label.label {
         padding-left: 0.4em;
         top: 2.3em;
     }
-
 }
 
-@media screen and (min-width:600px) {
-    .form-input {
-        width: 70%;
-    }
-
+@media screen and (min-width:500px) {
+    .form-input,
     .select-account-type {
-        width: 70%;
+        width: 80%;
     }
 
     #create-account-btn {
@@ -393,9 +477,52 @@ form input:valid+label.label {
 } */
 
 @media screen and (min-width:600px) {
-    form{
-        padding:0;
+    main {
+        height: initial;
+        border: none;
     }
+
+    #menu-icon {
+        display: none;
+    }
+
+    #menu {
+        display: flex;
+        text-align: center;
+        right: 0;
+        background-color: unset;
+        padding: 0 2em;
+        width: unset;
+        align-items: baseline;
+        justify-content: flex-end;
+    }
+
+    #menu a {
+        display: block;
+        padding: 0;
+        width: initial;
+        margin: 0 0.5em;
+        color: rgba(255, 255, 255, 0.483);
+    }
+
+    #menu a:hover {
+        color: #fff;
+    }
+
+    #menu-wrapper {
+        border-radius: unset;
+        overflow: unset;
+        position: initial;
+        z-index: unset;
+        transform-origin: unset;
+        clip-path: unset;
+        transition: all 0.4s ease;
+    }
+
+    form {
+        padding: 0;
+    }
+
     .account-type {
         box-shadow: 0 6px 25px rgba(39, 174, 95, 0.34);
     }
@@ -409,9 +536,8 @@ form input:valid+label.label {
     #create-account-wrapper {
         background-color: #fff;
         padding: 0 0 2em 0;
-        width: 85vw;
+        width: 60vw;
         border-radius: 5em 5em 1em 1em;
-        overflow: hidden;
     }
 
     .form-input,
@@ -424,10 +550,12 @@ form input:valid+label.label {
     }
 
     form {
-        width: 75vw;
+        width: 50vw;
+        ;
     }
 
-    .form-input {
+    .form-input,
+    .select-account-type {
         width: 100%;
     }
 
@@ -449,46 +577,27 @@ form input:valid+label.label {
 
 }
 
-@media screen and (min-width:768px) and (min-height:900px) and (orientation:portrait{
-    main {
-        background-color: #110022;
-        height: 100vh;
-    }
-
-}
-
-@media screen and (min-width:768px) {
-    main {
-        background-color: #110022;
-        height: 100vh;
-    }
-
+@media screen and (max-height:556px) and (max-width:599px) {
     #create-account-wrapper {
-        width: 70vw;
+        overflow-y: auto;
     }
 
-    form {
-        width: 60vw;
+    main {
+        border: none;
+        height: fit-content;
+        padding: 0;
+        overflow: auto;
     }
-
-    #notification-contents {
-        width: 50vw;
-    }
-
+  
 }
 
 @media screen and (min-width:1024px) {
     #create-account-wrapper {
-        width: 60vw;
+        width: 50vw;
     }
 
     form {
-        width: 50vw;
-    }
-    #notification-contents {
-        width: 30vw;
-        padding: 3em 1em;
-        font-size: 1.5em;
+        width: 40vw;
     }
 }
 
@@ -499,10 +608,5 @@ form input:valid+label.label {
 
     form {
         width: 25vw;
-    }
-    #notification-contents {
-        width: 30vw;
-        padding: 5em;
-        font-size: 2em;
     }
 }
