@@ -2,26 +2,35 @@
 let localStorage = window.localStorage;
 let validationError = document.getElementById('validation-error');
 
+let dropIcon = document.getElementById('drop-down-icon');
+let selectedOption = document.getElementById('select-input');
+let accountListLabel = document.getElementById('account-type-label');
+let targetSelectElem = document.querySelector('.select-account-type');
+
+
 function validateForm() {
-    let forms = document.forms;
-    let createAccountForm = forms['create-account-form'];
-    let passwordInput = createAccountForm['password'];
-    let nameInput = createAccountForm['full-name'];
-    let emailInput = createAccountForm['email'];
+    // let forms = document.forms;
+    // let createAccountForm = forms['create-account-form'];
+    let passwordInput = document.getElementById('password')
+    let nameInput = document.getElementById('full-name');
+    let emailInput = document.getElementById('email');
     let organisation = selectedOption.innerText;
 
-    if (passwordInput.checkValidity() && nameInput.checkValidity() && emailInput.checkValidity() && organisation !== "") {
+    if (passwordInput.checkValidity() && nameInput.checkValidity() && emailInput.checkValidity() && organisation !== undefined) {
+        if (localStorage.hasOwnProperty([emailInput.value])) {
 
-        createUser(emailInput.value, nameInput.value, passwordInput.value, selectedOption)
-        // window.open('create-account.html');
-        // setTimeout(() => {
-        // window.open('index.html', '_self');
-        setTimeout(() => {
-            // Display confrimation page
-            document.getElementById('notification').style.display = "flex";
-        }, 300);
-        // },1000);
-        return true;
+            return false;
+        } else {
+            createUser(emailInput.value, nameInput.value, passwordInput.value, selectedOption)
+            console.log(localStorage[emailInput.value]);
+            setTimeout(() => {
+                // Display confrimation page
+                document.getElementById('notification').style.display = "flex";
+            }, 300);
+            // return true;
+        }
+
+
     } else {
         emailInput.checkValidity() ? '' : emailInput.parentElement.nextElementSibling.style.visibility = 'visible';
         passwordInput.checkValidity() ? '' : passwordInput.parentElement.nextElementSibling.style.visibility = 'visible';
@@ -31,7 +40,8 @@ function validateForm() {
     }
 
 }
-
+let createAccountBtn = document.getElementById('create-account-btn');
+createAccountBtn.addEventListener('click', validateForm);
 let togglePasswordIcon = document.getElementById('show-hide-password');
 togglePasswordIcon.addEventListener('click', showHidePassword);
 function showHidePassword() {
@@ -42,14 +52,11 @@ function showHidePassword() {
     } else {
         passwordElem.type = 'password';
         togglePasswordIcon.classList.value = "fas fa-eye";
-    }
-}
+    };
+};
 
 
-let dropIcon = document.getElementById('drop-down-icon');
-let selectedOption = document.getElementById('select-input');
-let accountListLabel = document.getElementById('account-type-label');
-let targetSelectElem = document.querySelector('.select-account-type');
+
 dropIcon.addEventListener('click', toggleSelectDrop);
 targetSelectElem.addEventListener('click', toggleSelectDrop);
 selectedOption.addEventListener('click', toggleSelectDrop);
@@ -118,12 +125,14 @@ inputBoxes.forEach(box => {
             box.nextElementSibling.style.top = '0.4em';
             box.nextElementSibling.style.left = '2.7em';
             // box.parentElement.nextElementSibling.style.visibility = 'hidden';
+            if (box.id == "email") {
+                box.parentElement.nextElementSibling.innerHTML = localStorage.hasOwnProperty(box.value) ?
+                    "**This email is already registered" : "**Please fill a valid Email";
+                box.parentElement.nextElementSibling.style.visibility = 'visible';
+            }
         } else {
             box.nextElementSibling.style.top = '2em';
             box.nextElementSibling.style.left = '2.6em';
-            box.id == "email" ? localStorage.hasOwnProperty(box.value) ?
-                box.parentElement.nextElementSibling.innerHTML = "**This email is already registered" :
-                box.parentElement.nextElementSibling.innerHTML = "**Please fill a valid Email" : ""
             box.parentElement.nextElementSibling.style.visibility = 'visible';
         }
     });
