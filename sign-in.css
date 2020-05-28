@@ -37,7 +37,7 @@ main {
     height:calc(100vh - 4em);
     justify-content: center;
     align-items: center;
-    background: #110022;
+/*     background: #110022; */
     padding: 2em 0;
     border: 8px solid #fff;
 }
