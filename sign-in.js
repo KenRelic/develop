@@ -1,5 +1,7 @@
 // import { localStorage } from "./create-account.js";
 let localStorage = window.localStorage;
+let validationMessage = document.getElementById('validation-error');
+
 
 function validateDetails() {
     let password = document.getElementById('password');
@@ -44,20 +46,30 @@ function showHidePassword() {
     }
 }
 
+
+// TRIGGER INPUT CHECK
 let inputBoxes = document.querySelectorAll('.form-input input');
 inputBoxes.forEach(box => {
     box.addEventListener('focus', () => {
-        box.nextElementSibling.style.top = '0.4em';
-        box.nextElementSibling.style.left = '2.7em';
+        box.nextElementSibling.style.top = '0.5em';
+        box.nextElementSibling.style.left = '2.5em';
     });
-    box.addEventListener('blur', () => {
+    box.addEventListener('blur', () => {        
         if (box.value !== "") {
-            box.nextElementSibling.style.top = '0.4em';
-            box.nextElementSibling.style.left = '2.7em';
+            box.nextElementSibling.style.top = '0.5em';
+            box.nextElementSibling.style.left = '2.5em';
+        //    if(localStorage.hasOwnProperty(inputBoxes[0].value)){
+        //     validationMessage.innerHTML = '**Email already exists';
+        //     validationMessage.style.visibility = 'visible';
+        //    }
+            
         } else {
-            box.nextElementSibling.style.top = '2em';
-            box.nextElementSibling.style.left = '2.6em';
+            box.nextElementSibling.style.top = '1.5em';
+            box.nextElementSibling.style.left = '2.5em';
         }
     });
 
-})
+});
+
+
+
