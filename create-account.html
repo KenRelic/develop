@@ -34,7 +34,7 @@
             <h1 id="header">Create account</h1>
             <p>Create account to get started</p>
             <!-- Form-->
-            <form name="create-account-form" action="" method="post">
+            <div id="form" name="create-account-form" action="" method="#">
                 <div class="form-group form-input">
                     <i class="fas fa-user"></i>
                     <input type="text" name="full_name" pattern="[a-zA-Z]+\s[a-zA-Z]+$" id="full-name"
@@ -67,7 +67,7 @@
                     </ul>
                 </div>
                 <span class="error-message">**Field is required</span>
-                <button id="create-account-btn" onclick=" return validateForm()" type="submit"> Create Account</button>
+                <input type="button"  id="create-account-btn" value="Create Account"> 
             </form>
             <p>Have account already? <a href="sign-in.html" class="sign-in-link">Sign in</a>
             </p>
@@ -79,11 +79,11 @@
         <div id="notification-contents">
             <i class="fas fa-envelope"></i>
             <p id="notification-msg">An Email has been sent for you to confirm</p>
-            <a href="sign-in.html"></a><button>goto sign in page</button></a>
+            <a href="sign-in.html" id="sign-in-btn"><button>goto sign in page</button></a>
         </div>
     </section>
     <script src="main.js"></script>
-    <script src="create-account.js"></script>
+    <script src="create-account.js" type="module"></script>
 </body>
 
 </html>
