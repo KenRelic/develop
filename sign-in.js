@@ -58,6 +58,8 @@ inputBoxes.forEach(box => {
         if (box.value !== "") {
             box.nextElementSibling.style.top = '0.5em';
             box.nextElementSibling.style.left = '2.5em';
+            box.nextElementSibling.style.fontWeight = 'normal';
+            
         //    if(localStorage.hasOwnProperty(inputBoxes[0].value)){
         //     validationMessage.innerHTML = '**Email already exists';
         //     validationMessage.style.visibility = 'visible';
@@ -66,6 +68,7 @@ inputBoxes.forEach(box => {
         } else {
             box.nextElementSibling.style.top = '1.5em';
             box.nextElementSibling.style.left = '2.5em';
+            box.nextElementSibling.style.fontWeight = '700';
         }
     });
 
