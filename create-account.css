@@ -16,14 +16,6 @@ html {
     background-color: #110022;
 }
 
-/* Change the auto fill color */
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-}
-
 body {
     font-family: 'Righteous', cursive;
     /* background: #ffffff; */
@@ -342,7 +334,7 @@ li:nth-of-type(2) {
     z-index: 4;
 }
 
-form {
+#form {
     width: 100%;
 }
 
@@ -386,7 +378,7 @@ label.label,
     cursor: pointer;
 }
 
-form input:valid+label.label {
+#form input:valid+label.label {
     top: 0.4em;
     left: 2.9em;
     color: #110022;
@@ -527,7 +519,7 @@ form input:valid+label.label {
         transition: all 0.4s ease;
     }
 
-    form {
+    #form {
         padding: 0;
     }
 
@@ -557,7 +549,7 @@ form input:valid+label.label {
         font-size: 3em;
     }
 
-    form {
+    #form {
         width: 50vw;
         ;
     }
@@ -585,7 +577,7 @@ form input:valid+label.label {
 
 }
 
-@media screen and (max-height:619px) and (max-width:599px) {
+@media screen and (max-height:556px) and (max-width:599px) {
     #create-account-wrapper {
         overflow-y: auto;
     }
@@ -604,7 +596,7 @@ form input:valid+label.label {
         width: 50vw;
     }
 
-    form {
+    #form {
         width: 40vw;
     }
 }
@@ -614,8 +606,7 @@ form input:valid+label.label {
         width: 30vw;
     }
 
-    form {
+    #form {
         width: 25vw;
     }
 }
-
