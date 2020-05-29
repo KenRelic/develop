@@ -126,8 +126,8 @@ inputBoxes.forEach(box => {
             box.nextElementSibling.style.left = '2.7em';
             // box.parentElement.nextElementSibling.style.visibility = 'hidden';
              if (box.id == "email") {
-                box.parentElement.nextElementSibling.innerHTML = box.checkValidity()? localStorage.hasOwnProperty(box.value) ?
-                    "**This email is already registered" : "" :"**Please fill a valid Email";
+                box.checkValidity()? localStorage.hasOwnProperty(box.value) ?
+                box.parentElement.nextElementSibling.innerHTML = "**This email is already registered" : "" :"**Please fill a valid Email";
                 box.parentElement.nextElementSibling.style.visibility =  box.checkValidity()? 'hidden':'visible';
             }
         } else {
