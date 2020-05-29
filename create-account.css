@@ -184,7 +184,7 @@ main {
     outline: none;
     border: none;
     flex: 1;
-    padding: 1.5em 0 1.5em 0.8em;
+    padding: 1em 0 1em 0.7em;
     font-size: 1.2em;
     font-weight: 700;
     color: #110022;
@@ -220,8 +220,9 @@ main {
 }
 
 .select-account-type {
-    padding: 2.4em 0 2.1em 2.6em;
+    padding: 1em 1em 2.6em 0;
     font-size: 1.1em;
+    line-height: 1.5;
 }
 
 .account-type {
@@ -318,19 +319,19 @@ li:nth-of-type(2) {
     position: absolute;
     display: inline-block;
     color: #2F80ED;
-    padding: 0 0 0 0.6em;
+    /* padding: 0 0 0 0.6em; */
     outline: none;
     border: none;
     left: 0.7em;
+
 }
 
 .fa-eye:before,
 .fa-eye-slash:before {
     padding-right: 1.3em;
     position: absolute;
-    top: 0;
     right: 0.5em;
-    top: 2em;
+    top: 1.5em;
     z-index: 4;
 }
 
@@ -355,20 +356,20 @@ label.label,
     width: inherit;
     position: absolute;
     left: 2.6em;
-    top: 2em;
+    top: 1.5em;
     z-index: 0;
     transition: all 0.4s ease;
 }
 
 #account-type-label {
-    top: 1.6em;
+    top: 1.2em;
 }
 
 #email:focus+label.label,
 #password:focus+label.label,
 #full-name:focus+label.label,
 #select-input:focus+#acccount-type-label {
-    top: 0.4em;
+    top: -0.1em;
     font-weight: 500;
     color: #110022;
     left: 2.7em;
@@ -379,7 +380,7 @@ label.label,
 }
 
 #form input:valid+label.label {
-    top: 0.4em;
+    top: -0.1em;
     left: 2.9em;
     color: #110022;
     font-weight: 500;
@@ -400,7 +401,7 @@ label.label,
 }
 
 #create-account-btn {
-    width: 50%;
+    /* width: 50%; */
 }
 
 #create-account-btn:hover {
@@ -447,17 +448,14 @@ label.label,
 }
 
 /* MEdia queries */
-@media screen and (max-width:369px) {
+/* @media screen and (max-width:369px) {
 
     #show-hide-password {
         padding: 0 0.6em 0 0;
     }
 
-    .form-input i {
-        padding-left: 0.4em;
-        top: 2.3em;
-    }
-}
+   
+} */
 
 @media screen and (min-width:500px) {
     .form-input,
@@ -577,7 +575,7 @@ label.label,
 
 }
 
-@media screen and (max-height:556px) and (max-width:599px) {
+@media screen and (max-height:556px){
     #create-account-wrapper {
         overflow-y: auto;
     }
